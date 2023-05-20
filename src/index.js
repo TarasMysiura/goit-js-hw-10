@@ -9,8 +9,10 @@ const refs = {
   input: document.getElementById('search-box'),
   countryList: document.querySelector('.country-list'),
   countryCard: document.querySelector('.country-info'),
+  body: document.querySelector('body')
 };
 
+refs.body.style.backgroundColor = '#cce7fb';
 refs.countryList.list_style = 'none';
 refs.input.addEventListener('input', debounce(emptyName, DEBOUNCE_DELAY));
 
@@ -54,7 +56,7 @@ function changeCountryList(data) {
   refs.countryList.innerHTML = data
     .map(({ flags, name }) => {
       return `<li class="list-item" display="flex">
-  <img src="${flags.svg}" width="50" height="40" alt="${flags.alt}">
+  <img src="${flags.svg}" width="50" height="30" alt="${flags.alt}">
   <h2 class="item-title">${name.official}</h2>
 </li>`;
     })
