@@ -11,8 +11,7 @@ const refs = {
   countryCard: document.querySelector('.country-info'),
 };
 
-refs.countryList.list_style = "none";
-
+refs.countryList.list_style = 'none';
 refs.input.addEventListener('input', debounce(emptyName, DEBOUNCE_DELAY));
 
 function emptyName() {
@@ -41,7 +40,6 @@ function search() {
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
-    //   console.error(error);
     });
 }
 
@@ -56,7 +54,7 @@ function changeCountryList(data) {
   refs.countryList.innerHTML = data
     .map(({ flags, name }) => {
       return `<li class="list-item" display="flex">
-  <img src="${flags.svg}" width="50" height="30" alt="${flags.alt}">
+  <img src="${flags.svg}" width="50" height="40" alt="${flags.alt}">
   <h2 class="item-title">${name.official}</h2>
 </li>`;
     })
