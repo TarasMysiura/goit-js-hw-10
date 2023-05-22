@@ -9,7 +9,7 @@ const refs = {
   input: document.getElementById('search-box'),
   countryList: document.querySelector('.country-list'),
   countryCard: document.querySelector('.country-info'),
-  body: document.querySelector('body')
+  body: document.querySelector('body'),
 };
 
 refs.body.style.backgroundColor = '#cce7fb';
@@ -32,15 +32,17 @@ function search() {
         handleTooManyMatchesFound();
       } else if (result.length >= 2 && result.length <= 10) {
         changeCountryList(result);
-        console.log(1);
+        // console.log(1);
       } else if (result.length === 1) {
         createCountryCard(result);
-        console.log(2);
+        // console.log(2);
       } else {
         Notiflix.Notify.failure('Oops, something went wronga!');
       }
     })
-    .catch(error => {
+    .catch(() => {
+      refs.countryList.innerHTML = '';
+      refs.countryCard.innerHTML = '';
       Notiflix.Notify.failure('Oops, something went wrong!');
     });
 }
